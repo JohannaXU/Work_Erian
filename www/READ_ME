@@ -1,0 +1,7 @@
+This PHP file should be put into ~/var/
+
+It works as the automatic operator for the database MYSQL and dashboard GECKOBOARD.
+
+It can generate RecordList every 5 minutes, send data from MySQL to Geckoboard every 1/5 minutes.
+
+It should be put into the 'server', which is the location of MySQL.
