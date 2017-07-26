@@ -1,0 +1,103 @@
+
+----------------- create example----------------------------------
+curl https://api.geckoboard.com/datasets/sales.gross \
+  -X PUT \
+  -u '222efc82e7933138077b1c2554439e15:' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "fields": {
+    "amount": {
+      "type": "number",
+      "name": "Amount",
+      "optional": false
+    },
+    "timestamp": {
+      "type": "datetime",
+      "name": "Date"
+    }
+  },
+  "unique_by": ["timestamp"]
+}'
+
+-------------------- put example----------------------------
+curl https://api.geckoboard.com/datasets/wp4test \
+  -X PUT \
+  -u '2d8234836d81e3d7530cece45a8a07e2:' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "fields": {
+    "amount": {
+      "type": "number",
+      "name": "Amount",
+      "optional": false
+    },
+    "timestamp": {
+      "type": "datetime",
+      "name": "Date"
+    }
+  },
+  "unique_by": ["timestamp"]
+}'
+
+---------------- post example----------------------------------------
+curl https://api.geckoboard.com/datasets/wp4test/data \
+  -X POST \
+  -u '2d8234836d81e3d7530cece45a8a07e2:' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "data": [
+    {
+      "timestamp": "2016-01-01T12:00:00Z",
+      "amount": 819
+    },
+    {
+      "timestamp": "2016-01-02T12:00:00Z",
+      "amount": 409
+    },
+    {
+      "timestamp": "2016-01-03T12:00:00Z",
+      "amount": 164
+    }
+  ]
+}'
+
+------------------ geckoboard post --------------------
+curl https://api.geckoboard.com/datasets/smeswp4/data \
+  -X POST \
+  -u '2d8234836d81e3d7530cece45a8a07e2:' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "data": [
+    {
+      "moment": "2017-05-03T01:55:00Z",
+      "total": 19
+    }
+  ]
+}'
+
+---------------- delete ----------------------------------
+curl -X DELETE \
+     -u '2d8234836d81e3d7530cece45a8a07e2:' \
+     https://api.geckoboard.com/datasets/wp4test
+
+---------------------------------------------------------
+
+$curl_dataset = "
+	curl https://api.geckoboard.com/datasets/smeswp4/data \
+  	-X POST \
+  	-u '2d8234836d81e3d7530cece45a8a07e2:' \
+  	-H 'Content-Type: application/json' \
+  	-d '{
+  	\"data\": [
+    	$output
+  	]
+	}' 
+	";
+
+----------------------------------------------------------
+curl https://api.geckoboard.com/datasets/smeswp4/data -X POST -u '2d8234836d81e3d7530cece45a8a07e2:' -H 'Content-Type: application/json' -d '{\"data\": [{\"moment\": \"2017-05-03T01:55:00Z\", \"total\": 19}]}'
+
+-----------------------------------------------------------------------------
+curl https://api.geckoboard.com/datasets/smeswp4/data -X POST -u '2d8234836d81e3d7530cece45a8a07e2:' -H 'Content-Type: application/json' -d '{"data": [{"moment": "2017-06-11T16:00:00Z", "total": 0}]}'
+
+
