@@ -1,0 +1,7 @@
+Read_Me:
+
+This file is works well for BEAGLEBONE BLACK WIRELESS.
+
+Compared with BBB file "DIOPS_DSVM_BBBSever_2.3", the /src/sniffer_predict/Sniffer.h is modified. 
+Since the Wi-Fi packet format is different, the 'radiotap header' definition is changed accrodingly.
+

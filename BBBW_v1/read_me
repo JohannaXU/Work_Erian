@@ -1,0 +1,22 @@
+
+/* ------------------ 2016-01-08 ---------------------- */
+
+1. Revise the '/src/sniffer_predict/Sniffer.cpp' and '/src/sniffer/Sniffer_train.cpp'
+2. Revise Part:
+	// no valid rssi,return
+	// revised by xhang 2016-01-08 [add contrains that return when ssi less than -75]
+	// if (head->ssi_sgn[0] > 0)
+	if (head->ssi_sgn[0] > 0 || head->ssi_sgn[0] < -75)
+	{
+		return;
+	}
+3. To remove the RSSI which is less than -75, in order to increase the accuraccy.
+
+/* ------------------- 2017-04-21 ----------------------*/
+
+1. Revise '/src/sniffer_predict/Sniffer.cpp'.
+	-- pcap_loop() ===> pcap_dispatch()
+	-- SetMode() and DatabaseComm() are set in the main()
+
+2. Revise 'sniffer_predict.perl'
+	-- system("sudo cpufreq-set -g performance");
