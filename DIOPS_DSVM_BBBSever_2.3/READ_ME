@@ -1,0 +1,5 @@
+This file is the Wi-Fi location code for normal BeagleBone Black.
+
+# USE 'sudo cpufreq-set -g performance' to optimize the stable performance of the system.
+# USE the wired connected BBB as the database.
+# USE 'pcap-dispatch()' to collect wifi packets.
